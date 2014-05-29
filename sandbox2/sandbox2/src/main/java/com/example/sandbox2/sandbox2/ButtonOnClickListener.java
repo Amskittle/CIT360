@@ -1,3 +1,7 @@
+/*
+* File created May/2014 by Amy Norman, William Bowen, and Curtis Lange.
+*/
+
 package com.example.sandbox2.sandbox2;
 
 import android.graphics.Color;
