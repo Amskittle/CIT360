@@ -56,7 +56,7 @@ public class Test {
 			//This for loop isn't working.
 			for (Iterator<Movies> iter = movies.iterator(); iter.hasNext();) {
 			    Movies movie = iter.next();
-			    System.out.println("Movie: ");
+			    System.out.println("Movie: " + movie.getTitle());
 			}
 			
 			/*

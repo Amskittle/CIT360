@@ -58,10 +58,11 @@ public class HibernateUtilSingleton
 		 *  
 		 *  Do we need the misquote_movie and quote_movie tables?
 		 */
-
+		
+		config.addAnnotatedClass(Movies.class);
 		config.addAnnotatedClass(Quotes.class);
 
-		config.addAnnotatedClass(Movies.class);
+		
 		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(config.getProperties()).build();        
 
 		sessionFactory = config.buildSessionFactory(serviceRegistry);

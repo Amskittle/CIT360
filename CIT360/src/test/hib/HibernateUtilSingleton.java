@@ -24,7 +24,7 @@ public class HibernateUtilSingleton
 
 		//change the next line of code to match your MySQL URL and port
 
-		config.setProperty("hibernate.connection.url", "jdbc:mysql://localhost/test");
+		config.setProperty("hibernate.connection.url", "jdbc:mysql://localhost:3306/test");
 
 		//change the next two lines of code to match your MySQL user name and password.
 

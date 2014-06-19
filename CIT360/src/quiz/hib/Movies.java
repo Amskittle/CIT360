@@ -25,7 +25,7 @@ public class Movies {
     
     public String toString() {
 //        return "User [id=" + id + ", pword=" + pword + ", uname=" + uname + ", phoneNumbers]";
-    	return "Movie [id=" + movie_id + ", movie=" + title;
+    	return "Movie [id=" + movie_id + ", title=" + title + "]";
     }
     
     public String getId() {

@@ -17,7 +17,7 @@ public class Quotes {
     @GeneratedValue
     private String quote_id;
     private String quote;
-    private Movies correct;
+//    private Movies correct;
     
     /*
      * one User can have many phone numbers.  CascadeType.ALL causes associated
@@ -25,19 +25,25 @@ public class Quotes {
      */
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(
-               name="movies",
+               name="quote_mismovie",
                joinColumns = { @JoinColumn( name="quote_id") },
                inverseJoinColumns = @JoinColumn( name="movie_id")
                )
-    private Set<Movies> misquotes;
-    private Set<Movies> movie_quotes;
+    private Set<Movies> misMovies;
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(
+            name="quote_movie",
+            joinColumns = { @JoinColumn( name="quote_id") },
+            inverseJoinColumns = @JoinColumn( name="movie_id")
+            ) 
+    private Set<Movies> matchingMovies;
     public Quotes() {
     	
     }
     
     public String toString() {
 //        return "User [id=" + id + ", pword=" + pword + ", uname=" + uname + ", phoneNumbers]";
-    	return "Quote [quote=" + quote + ", movie=" + correct;
+    	return "Quote [id="+ quote_id + " quote=" + quote + "]";
     }
     
     public String getId() {
@@ -52,10 +58,21 @@ public class Quotes {
     public void setQuote(String quote) {
         this.quote = quote;
     }
-    public Set<Movies> getMisquotes() {
-        return misquotes;
-    }
-    public Set<Movies> getMovieQuotes() {
-        return movie_quotes;
-    }
+
+	public Set<Movies> getMisMovies() {
+		return misMovies;
+	}
+//  These setters aren't actually used since we're pulling from the database and not adding to it.
+//	public void setMisMovies(Set<Movies> misMovies) {
+//		this.misMovies = misMovies;
+//	}
+
+	public Set<Movies> getMatchingMovies() {
+		return matchingMovies;
+	}
+
+//	public void setMatchingMovies(Set<Movies> matchingMovies) {
+//		this.matchingMovies = matchingMovies;
+//	}
+
 }
