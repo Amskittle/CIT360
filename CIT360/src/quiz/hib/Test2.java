@@ -16,7 +16,7 @@ import org.hibernate.Transaction;
 import org.hibernate.Query;
 
 public class Test2 {
-    private List<Quotes> quotes; // What should this be pointing to? Do we need more than one?
+    private List<Quotes> quotes;
     
     public Test2() {
         // TODO Auto-generated constructor stub
@@ -77,14 +77,14 @@ public class Test2 {
          * get a list of User instances based on what was found in the database tables.
          */
         quotes = allQuotesQuery.list();
-        System.out.println("num quotes: "+ quotes.size());
+        System.out.println("\n\nNumber of quotes: "+ quotes.size());
         /*
          * iterate over each Quotes instance returned by the query and found in the list.
          */
         Iterator<Quotes> iter = quotes.iterator();
         while(iter.hasNext()) {
             Quotes element = iter.next();
-            System.out.println("\n\n" + element.toString() + "\n\n"); // Outputs the quote
+            System.out.println(element.getQuote() + "\n\n"); // Outputs the quote
             System.out.println("\n\nNumber of correct movies with this quote: "+element.getMatchingMovies().size()); // Outputs the count of correct movies (1)
             System.out.println("Correct movie: "+element.getMatchingMovies() + "\n\n"); // Outputs the .toString of the movie.
             System.out.println("\n\nNumber of incorrect movies with this quote: "+element.getMisMovies().size()); //Outputs the count of incorrect movies (3)
