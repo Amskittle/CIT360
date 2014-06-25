@@ -10,12 +10,12 @@ import android.widget.TextView;
  * Created by Amy Billeter on 6/23/2014.
  */
 public class UIHandler extends Handler {
-    public void handleMessage(View view, Message msg) {
+    public void handleMessage(Message msg) {
         Bundle bundle = msg.getData();
         String string = bundle.getString("println");
-        TextView myTextView =
-                (TextView) view.findViewById(R.id.textView);
-        myTextView.setText(string);
+//        TextView myTextView =
+//                (TextView) findViewById(R.id.textView);
+//        myTextView.setText(string);
     }
 
 }
